@@ -9,6 +9,6 @@ class MainSeeder extends Seeder
     public function run()
     {
         $this->call('User');
-        // $this->call('Bahan');
+        $this->call('Bahan');
     }
 }

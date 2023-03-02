@@ -48,6 +48,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->group('pemilik', ['filter' => 'PemilikFilter'], function ($routes) {
         // Kelola Bahan
         $routes->get('kelola-bahan', 'BahanController::index');
+        $routes->post('kelola-bahan/store', 'BahanController::store');
     });
 
     // ADMIN

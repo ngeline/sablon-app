@@ -144,3 +144,8 @@
     </div>
 </section>
 <?= $this->endSection(); ?>
+
+<?= $this->section('script'); ?>
+<script src="<?= base_url(); ?>/admin/assets/extensions/apexcharts/apexcharts.min.js"></script>
+<script src="<?= base_url(); ?>/admin/assets/js/pages/dashboard.js"></script>
+<?= $this->endSection(); ?>

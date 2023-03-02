@@ -30,12 +30,6 @@ class RiwayatBahan extends Migration
             'detail_pesan' => [
                 'type' => 'TEXT',
             ],
-            'status' => [
-                'type' => 'ENUM',
-                'constraint' => "'read', 'unread'",
-                'null' => false,
-                'default' => 'unread',
-            ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp'
         ]);

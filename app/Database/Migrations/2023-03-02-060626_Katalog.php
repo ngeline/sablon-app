@@ -19,6 +19,9 @@ class Katalog extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255
             ],
+            'foto_produk' => [
+                'type' => 'TEXT',
+            ],
             'harga_bahan' => [
                 'type' => 'BIGINT',
                 'constraint' => '20',

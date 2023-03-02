@@ -19,6 +19,9 @@ class Bahan extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 50
             ],
+            'foto_bahan' => [
+                'type' => 'TEXT',
+            ],
             'kualitas' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100

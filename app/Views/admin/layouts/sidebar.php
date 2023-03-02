@@ -47,6 +47,18 @@
                     </a>
                 </li>
 
+                <?php if (session()->get('role') === 'pemilik') : ?>
+                    <li class="sidebar-item <?= uri_string() == 'pemilik/kelola-bahan' ? 'active' : '' ?>">
+                        <a href="<?= base_url('pemilik/kelola-bahan'); ?>" class="sidebar-link">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>Kelola Bahan</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (session()->get('role') === 'admin') : ?>
+                <?php endif; ?>
+
                 <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-journal-check"></i>

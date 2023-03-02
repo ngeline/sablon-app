@@ -22,6 +22,8 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'AuthFilter'    => \App\Filters\AuthFilter::class,
+        'AdminFilter'   => \App\Filters\AdminFilter::class,
+        'PemilikFilter' => \App\Filters\PemilikFilter::class,
     ];
 
     /**

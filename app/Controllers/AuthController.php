@@ -54,4 +54,9 @@ class AuthController extends BaseController
 
         return redirect()->to(base_url('login'));
     }
+
+    public function errors()
+    {
+        return view('errors');
+    }
 }

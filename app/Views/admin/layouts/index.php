@@ -72,6 +72,11 @@
                     sUrl: "<?= base_url('assets/library/dataTables/indonesian.json') ?>"
                 }
             })
+
+            $('.modal').modal({
+                backdrop: "static",
+                keyboard: false
+            });
         });
     </script>
 

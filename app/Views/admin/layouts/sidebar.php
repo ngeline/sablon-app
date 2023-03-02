@@ -59,7 +59,14 @@
                 <?php if (session()->get('role') === 'admin') : ?>
                 <?php endif; ?>
 
-                <li class="sidebar-item has-sub">
+                <li class="sidebar-item">
+                    <a href="<?= base_url('logout'); ?>" class="sidebar-link">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+
+                <!-- <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-journal-check"></i>
                         <span>Form Validation</span>
@@ -276,7 +283,7 @@
                         <i class="bi bi-cash"></i>
                         <span>Donate</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

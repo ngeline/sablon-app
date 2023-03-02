@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class BahanModel extends Model
+{
+    protected $allowedFields;
+    public function __construct()
+    {
+        parent::__construct();
+        // Get all the field names from the table
+        $fields = $this->db->getFieldNames('bahan');
+
+        // Build the allowedFields array
+        foreach ($fields as $field) {
+            if ($field != 'id') {
+                $this->allowedFields[] = $field;
+            }
+        }
+    }
+
+    protected $table            = 'bahan';
+    protected $primaryKey       = 'id';
+    protected $useAutoIncrement = true;
+    protected $returnType       = 'array';
+    protected $protectFields    = true;
+
+    // Dates
+    protected $useTimestamps = true;
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+
+    // Validation
+    protected $validationRules      = [];
+    protected $validationMessages   = [];
+    protected $skipValidation       = false;
+    protected $cleanValidationRules = true;
+
+    // Callbacks
+    protected $allowCallbacks = true;
+    protected $beforeInsert   = [];
+    protected $afterInsert    = [];
+    protected $beforeUpdate   = [];
+    protected $afterUpdate    = [];
+    protected $beforeFind     = [];
+    protected $afterFind      = [];
+    protected $beforeDelete   = [];
+    protected $afterDelete    = [];
+
+    public function getBahan($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
+
+    public function getBahans()
+    {
+        return $this->findAll();
+    }
+
+    public function insertBahan($data)
+    {
+        return $this->save($data);
+    }
+
+    public function updateBahan($data, $id)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteBahan($id)
+    {
+        return $this->delete($id);
+    }
+}

@@ -13,8 +13,14 @@ class User extends Seeder
                 'username' => 'admin',
                 'role' => 'admin',
                 'password' => password_hash('12345678', PASSWORD_DEFAULT)
+            ],
+            [
+                'username' => 'pemilik',
+                'role' => 'pemilik',
+                'password' => password_hash('12345678', PASSWORD_DEFAULT)
             ]
         ];
+
         $this->db->table('users')->insertBatch($user);
     }
 }

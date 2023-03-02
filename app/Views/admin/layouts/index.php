@@ -52,7 +52,6 @@
                 </div>
             </div>
 
-
             <?= $this->include('admin/layouts/footer'); ?>
         </div>
     </div>
@@ -63,8 +62,18 @@
     <script src="<?= base_url(); ?>/admin/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="<?= base_url(); ?>/admin/assets/js/pages/dashboard.js"></script>
     <script src="<?= base_url(); ?>/admin/assets/extensions/jquery/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
-    <script src="<?= base_url(); ?>/admin/assets/js/pages/datatables.js"></script>
+    <script src="<?= base_url('assets/library/dataTables/datatables.min.js') ?>"></script>
+
+    <script>
+        $(document).ready(function() {
+            /* Get data table */
+            var table = $('#table1').DataTable({
+                oLanguage: {
+                    sUrl: "<?= base_url('assets/library/dataTables/indonesian.json') ?>"
+                }
+            })
+        });
+    </script>
 
     <?= $this->renderSection('script'); ?>
 

@@ -10,7 +10,11 @@ class BahanController extends BaseController
     public function index()
     {
         $bahan = new BahanModel();
-        $data['list'] = $bahan->getBahans();
+
+        $data = [
+            'title' => 'Kelola Bahan',
+            'list' => $bahan->getBahans(),
+        ];
 
         return view('pemilik/bahan/index', $data);
     }

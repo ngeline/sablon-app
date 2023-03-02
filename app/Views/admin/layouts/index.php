@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/css/pages/datatables.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/css/pages/fontawesome.css" />
+
+    <link rel="stylesheet" href="<?= base_url('assets/library/selectize/selectize.bootstrap5.min.css'); ?>">
 </head>
 
 <body>
@@ -63,6 +65,8 @@
     <script src="<?= base_url(); ?>/admin/assets/js/pages/dashboard.js"></script>
     <script src="<?= base_url(); ?>/admin/assets/extensions/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets/library/dataTables/datatables.min.js') ?>"></script>
+
+    <script src="<?= base_url('assets/library/selectize/selectize.min.js') ?>"></script>
 
     <script>
         $(document).ready(function() {

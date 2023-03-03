@@ -30,8 +30,8 @@
                             <td><?= number_format($row['harga_beli'], 0, '', '.') ?></td>
                             <td><?= number_format($row['harga_jual'], 0, '', '.') ?></td>
                             <td>
-                                <a href="#" class="btn icon icon-left btn-warning" data-bs-target="#ModalUpdate" data-bs-toggle="modal"><i data-feather="alert-triangle"></i> Update Data</a>
-                                <a href="#" class="btn icon icon-left btn-danger"><i data-feather="alert-circle"></i> Delete Data</a>
+                                <a href="javacript:void(0)" class="btn icon icon-left btn-warning" id="btnEdit" data-id="<?= $row['id'] ?>"><i data-feather="alert-triangle"></i> Update Data</a>
+                                <a href="javacript:void(0)" class="btn icon icon-left btn-danger" id="btnDelete" data-id="<?= base_url('pemilik/kelola-bahan/delete/' . $row['id']) ?>"><i data-feather="alert-circle"></i> Delete Data</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -70,6 +70,7 @@
                             <label>Kualitas Bahan</label>
                             <div class="form-group">
                                 <select name="kualitas" id="addKualitas" class="selectize">
+                                    <option value=""></option>
                                     <?php foreach ($kualitas as $row) : ?>
                                         <option value="<?= $row['kualitas'] ?>"><?= $row['kualitas'] ?></option>
                                     <?php endforeach; ?>
@@ -80,6 +81,7 @@
                             <label>Jenis Bahan</label>
                             <div class="form-group">
                                 <select name="jenis" id="addJenis" class="selectize">
+                                    <option value=""></option>
                                     <?php foreach ($jenis as $row) : ?>
                                         <option value="<?= $row['jenis'] ?>"><?= $row['jenis'] ?></option>
                                     <?php endforeach; ?>
@@ -115,7 +117,7 @@
     </div>
 </div>
 
-<!--Modal Create -->
+<!--Modal Update -->
 <div class="modal fade text-left" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -128,22 +130,31 @@
                 <?= csrf_field() ?>
                 <div class="modal-body">
                     <div class="row">
+                        <input type="hidden" name="id" id="editId">
                         <div class="col-md-6">
                             <label>Nama Bahan</label>
                             <div class="form-group">
-                                <input id="addNama" name="nama" type="text" placeholder="Nama Bahan" class="form-control">
+                                <input id="editNama" name="nama" type="text" placeholder="Nama Bahan" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label>Foto Bahan</label>
+                            <label>Foto Bahan <span style="font-size: 11px; color: red;">*kosongkan jika tidak update foto</span></label>
                             <div class="form-group">
-                                <input id="addFoto" name="foto" type="file" class="form-control">
+                                <div class="row">
+                                    <div class="col-md-2 px-2">
+                                        <a type="button" class="btn icon btn-warning w-100 glightbox" id="btnImage"><i data-feather="eye"></i></a>
+                                    </div>
+                                    <div class="col-md-10 px-2">
+                                        <input id="editFoto" name="foto" type="file" class="form-control w-100">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label>Kualitas Bahan</label>
                             <div class="form-group">
-                                <select name="kualitas" id="addKualitas" class="selectize">
+                                <select name="kualitas" id="editKualitas" class="selectize">
+                                    <option value=""></option>
                                     <?php foreach ($kualitas as $row) : ?>
                                         <option value="<?= $row['kualitas'] ?>"><?= $row['kualitas'] ?></option>
                                     <?php endforeach; ?>
@@ -153,7 +164,8 @@
                         <div class="col-md-6">
                             <label>Jenis Bahan</label>
                             <div class="form-group">
-                                <select name="jenis" id="addJenis" class="selectize">
+                                <select name="jenis" id="editJenis" class="selectize">
+                                    <option value=""></option>
                                     <?php foreach ($jenis as $row) : ?>
                                         <option value="<?= $row['jenis'] ?>"><?= $row['jenis'] ?></option>
                                     <?php endforeach; ?>
@@ -163,32 +175,31 @@
                         <div class="col-md-6">
                             <label>Harga Beli</label>
                             <div class="form-group">
-                                <input id="addBeli" name="beli" type="number" placeholder="Harga Beli Bahan" class="form-control" min="0">
+                                <input id="editBeli" name="beli" type="number" placeholder="Harga Beli Bahan" class="form-control" min="0">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label>Harga Jual</label>
                             <div class="form-group">
-                                <input id="addJual" name="jual" type="number" placeholder="Harga Jual Bahan" class="form-control" min="0">
+                                <input id="editJual" name="jual" type="number" placeholder="Harga Jual Bahan" class="form-control" min="0">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <label>Keterangan</label>
                             <div class="form-group">
-                                <textarea name="keterangan" id="addKeterangan" cols="1" rows="3" class="form-control"></textarea>
+                                <textarea name="keterangan" id="editKeterangan" cols="1" rows="3" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-warning">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 <?= $this->endSection(); ?>
 
 <?= $this->section('script'); ?>
@@ -196,7 +207,67 @@
 <script>
     $(function() {
         $(".selectize").selectize({
-            create: true
+            placeholder: 'Pilih opsi atau tambahkan...',
+            create: true,
+        });
+    });
+
+    const lightbox = GLightbox({
+        selector: '.glightbox'
+    });
+
+    $(document).ready(function() {
+        $('body').on('click', '#btnEdit', function() {
+            var this_id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url('pemilik/kelola-bahan/edit') ?>",
+                data: {
+                    id: this_id,
+                },
+                success: function(response) {
+                    $('#ModalUpdate').modal('show');
+                    var encoded_data = response.data;
+                    var decoded_data = JSON.parse(atob(encoded_data));
+                    $('#editId').val(decoded_data.bahan.id);
+                    $('#editNama').val(decoded_data.bahan.nama_bahan);
+                    $('#editKualitas')[0].selectize.setValue(decoded_data.bahan.kualitas);
+                    $('#editJenis')[0].selectize.setValue(decoded_data.bahan.jenis);
+                    $('#editBeli').val(decoded_data.bahan.harga_beli);
+                    $('#editJual').val(decoded_data.bahan.harga_jual);
+                    $('#editKeterangan').val(decoded_data.bahan.keterangan);
+                    if ($('#btnImage').attr('href')) {
+                        $('#btnImage').removeAttr('href');
+                    }
+                    $('#btnImage').attr('href', '<?= base_url('assets/image/bahan/') ?>' + decoded_data.bahan.foto_bahan);
+                    lightbox.reload();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('AJAX error:');
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        });
+
+        $('body').on('click', '#btnDelete', function() {
+            var this_id = $(this).data('id');
+
+            Swal.fire({
+                title: 'Apakah kamu yakin?',
+                text: "Anda tidak akan dapat mengembalikan ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Kembali',
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = this_id;
+                }
+            });
         });
     });
 </script>

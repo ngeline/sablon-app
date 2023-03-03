@@ -53,6 +53,9 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         // Kelola Bahan
         $routes->get('kelola-bahan', 'BahanController::index');
         $routes->post('kelola-bahan/store', 'BahanController::store');
+        $routes->get('kelola-bahan/edit', 'BahanController::edit');
+        $routes->post('kelola-bahan/update', 'BahanController::update');
+        $routes->get('kelola-bahan/delete/(:num)', 'BahanController::delete/$1');
     });
 
     // ADMIN

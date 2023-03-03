@@ -18,6 +18,9 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/library/selectize/selectize.bootstrap5.min.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/library/sweetalert2/sweetalert2.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/library/glightbox/css/glightbox.min.css') ?>">
+
+    <link rel="stylesheet" href="<?= base_url('assets/css/custom.css') ?>">
 </head>
 
 <body>
@@ -67,6 +70,7 @@
 
     <script src="<?= base_url('assets/library/selectize/selectize.min.js') ?>"></script>
     <script src="<?= base_url('assets/library/sweetalert2/sweetalert2.min.js') ?>"></script>
+    <script src="<?= base_url('assets/library/glightbox/js/glightbox.min.js') ?>"></script>
 
     <script>
         $(document).ready(function() {

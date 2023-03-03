@@ -60,6 +60,8 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
 
     // ADMIN
     $routes->group('admin', ['filter' => 'AdminFilter'], function ($routes) {
+        $routes->get('info-harga-bahan', 'InfoHargaBahanController::index');
+        $routes->get('info-harga-bahan/notif', 'InfoHargaBahanController::notif');
     });
 
     // PEMBELI

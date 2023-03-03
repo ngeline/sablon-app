@@ -57,6 +57,13 @@
                 <?php endif; ?>
 
                 <?php if (session()->get('role') === 'admin') : ?>
+                    <li class="sidebar-item <?= uri_string() == 'admin/info-harga-bahan' ? 'active' : '' ?>">
+                        <a href="<?= base_url('admin/info-harga-bahan'); ?>" class="sidebar-link">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>Informasi Harga Bahan Terbaru</span>
+                            <span class="badge badge-warning text-primary" id="info"></span>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <li class="sidebar-item">
@@ -288,3 +295,11 @@
         </div>
     </div>
 </div>
+
+<?= $this->section('script'); ?>
+<script>
+    $(document).ready(function() {
+        $('#info').load("<?= base_url('admin/info-harga-bahan/notif') ?>");
+    });
+</script>
+<?= $this->endSection(); ?>

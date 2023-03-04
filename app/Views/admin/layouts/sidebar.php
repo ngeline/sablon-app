@@ -64,6 +64,12 @@
                             <span class="badge badge-warning text-primary" id="info"></span>
                         </a>
                     </li>
+                    <li class="sidebar-item <?= uri_string() == 'admin/data-bahan' ? 'active' : '' ?>">
+                        <a href="<?= base_url('admin/data-bahan'); ?>" class="sidebar-link">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>Data Bahan</span>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <li class="sidebar-item">

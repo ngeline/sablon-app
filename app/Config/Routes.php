@@ -63,6 +63,9 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         // Kelola Info Harga Bahan
         $routes->get('info-harga-bahan', 'InfoHargaBahanController::index');
         $routes->get('info-harga-bahan/notif', 'InfoHargaBahanController::notif');
+
+        $routes->get('data-bahan', 'BahanController::indexAdmin');
+        $routes->get('data-bahan/detail', 'BahanController::edit');
     });
 
     // PEMBELI

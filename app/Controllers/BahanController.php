@@ -210,4 +210,14 @@ class BahanController extends BaseController
         session()->setFlashdata("success", 'Record berhasil dihapus!');
         return redirect()->to(base_url('pemilik/kelola-bahan'));
     }
+
+    public function indexAdmin()
+    {
+        $data = [
+            'title' => 'Data Bahan',
+            'list' => $this->bahan->getBahans(),
+        ];
+
+        return view('admin/bahan/index', $data);
+    }
 }

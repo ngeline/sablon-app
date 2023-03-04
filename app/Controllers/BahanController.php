@@ -195,6 +195,16 @@ class BahanController extends BaseController
 
     public function delete($id)
     {
+        $dataBahan = $this->bahan->getBahan($id);
+
+        $riwayat = [
+            'bahan_id' => $id,
+            'kategori' => 'delete',
+            'pesan' => 'Menghapus bahan ' . $dataBahan['nama_bahan'],
+            'detail_pesan' => 'Bahan ' . $dataBahan['nama_bahan'] . ' telah dihapus',
+        ];
+        $this->riwayatBahan->insertRiwayatBahan($riwayat);
+
         $this->bahan->deleteBahan($id);
 
         session()->setFlashdata("success", 'Record berhasil dihapus!');

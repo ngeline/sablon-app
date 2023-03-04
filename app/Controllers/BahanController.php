@@ -174,15 +174,20 @@ class BahanController extends BaseController
             $bahan["foto_bahan"] = $nameFile;
         }
 
-        $this->bahan->updateBahan($bahan, $data['id']);
+        $dataBahan = $this->bahan->getBahan($data['id']);
 
-        $riwayat = [
-            'bahan_id' => $data['id'],
-            'kategori' => 'update',
-            'pesan' => 'Memperbarui bahan ' . $data['nama'] . ' dengan harga terbaru ' . $data['jual'],
-            'detail_pesan' => 'Memperbarui bahan ' . $data['nama'] . ' dengan harga beli terbaru ' . $data['beli'] . ' dan dijual dengan harga terbaru ' . $data['jual'],
-        ];
-        $this->riwayatBahan->insertRiwayatBahan($riwayat);
+        // Check if harga not same with previous
+        if ($dataBahan['harga_beli'] != $data['beli'] || $dataBahan['harga_jual'] != $data['jual']) {
+            $riwayat = [
+                'bahan_id' => $data['id'],
+                'kategori' => 'update',
+                'pesan' => 'Memperbarui bahan ' . $data['nama'] . ' dengan harga terbaru ' . $data['jual'],
+                'detail_pesan' => 'Memperbarui bahan ' . $data['nama'] . ' dengan harga beli terbaru ' . $data['beli'] . ' dan dijual dengan harga terbaru ' . $data['jual'],
+            ];
+            $this->riwayatBahan->insertRiwayatBahan($riwayat);
+        }
+
+        $this->bahan->updateBahan($bahan, $data['id']);
 
         session()->setFlashdata("success", 'Berhasil memperbarui data!');
         return redirect()->to(base_url('pemilik/kelola-bahan'));

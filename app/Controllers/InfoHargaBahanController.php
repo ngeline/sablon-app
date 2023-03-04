@@ -19,6 +19,7 @@ class InfoHargaBahanController extends BaseController
     {
         $data = [
             'title' => 'Informasi Harga Bahan Terbaru',
+            'list' => $this->riwayatBahan->orderBy('created_at', 'desc')->findAll()
         ];
 
         return view('admin/info/index', $data);

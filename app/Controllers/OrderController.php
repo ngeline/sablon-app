@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class LandingPageController extends BaseController
+class OrderController extends BaseController
 {
     public function index()
     {
-        return view('users/landingpage');
+        return view('users/order/index');
     }
 }

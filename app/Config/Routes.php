@@ -32,7 +32,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
+// Users / pelanggan
 $routes->get('/', 'LandingPageController::index');
+$routes->get('cek-invoice', 'CekInvoiceController::index');
+$routes->get('order', 'OrderController::index');
+
 
 //Routes authentication
 $routes->get('login', 'AuthController::index');

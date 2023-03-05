@@ -40,14 +40,15 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item <?= uri_string() == 'user' ? 'active' : '' ?>">
-                    <a href="<?= base_url('user'); ?>" class="sidebar-link">
-                        <i class="bi bi-person-badge-fill"></i>
-                        <span>Manajemen Users</span>
-                    </a>
-                </li>
+
 
                 <?php if (session()->get('role') === 'pemilik') : ?>
+                    <li class="sidebar-item <?= uri_string() == 'pemilik/users' ? 'active' : '' ?>">
+                        <a href="<?= base_url('pemilik/users'); ?>" class="sidebar-link">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>Kelola Users</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item <?= uri_string() == 'pemilik/kelola-bahan' ? 'active' : '' ?>">
                         <a href="<?= base_url('pemilik/kelola-bahan'); ?>" class="sidebar-link">
                             <i class="bi bi-person-badge-fill"></i>

@@ -4,7 +4,7 @@
 <section class="section">
     <div class="card">
         <div class="card-header">
-            <a class="btn icon icon-left btn-primary" data-bs-target="#createData" data-bs-toggle="modal"><i data-feather="edit"></i> Create User</a>
+            <a class="btn icon icon-left btn-primary" data-bs-target="#createData" data-bs-toggle="modal"><i data-feather="edit"></i> Tambah Data User</a>
         </div>
         <div class="card-body">
             <table class="table" id="table1">
@@ -43,34 +43,46 @@
                 <h4 class="modal-title" id="myModalLabel33">
                     Create User
                 </h4>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <i data-feather="x"></i>
-                </button>
             </div>
-            <form action="#">
+            <form action="<?= base_url('pemilik/users/store') ?>" method="POST">
+                <?= csrf_field(); ?>
                 <div class="modal-body">
                     <label>Username</label>
                     <div class="form-group">
                         <input id="username" name="username" type="text" placeholder="Username" class="form-control" />
                     </div>
-                    <label>Kata Sandi: </label>
+                    <label for="password">Kata Sandi: </label>
                     <div class="form-group">
-                        <input id="password" name="password" type="password" placeholder="Kata Sandi" class="form-control" />
+                        <input type="password" id="password" name="password" placeholder="Kata Sandi" class="form-control" required />
                     </div>
                     <label>Role User: </label>
                     <div class="form-group">
-                        <input id="role" name="role" type="text" placeholder="Role User" class="form-control" />
+                        <input id="role" name="role" type="text" placeholder="Role User" class="form-control" value="admin" disabled />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Create User</span>
-                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<?= $this->section('script'); ?>
+<?= $this->include('admin/layouts/message-alert'); ?>
+<script>
+    const passwordField = document.getElementById("password");
+    const confirmPasswordField = document.getElementById("confirm-password");
+
+    confirmPasswordField.addEventListener("input", () => {
+        if (confirmPasswordField.value !== passwordField.value) {
+            confirmPasswordField.setCustomValidity("Passwords do not match");
+        } else {
+            confirmPasswordField.setCustomValidity("");
+        }
+    });
+</script>
+<?= $this->endSection(); ?>
+
 
 <?= $this->endSection(); ?>

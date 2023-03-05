@@ -49,11 +49,13 @@ $routes->get('errors', 'AuthController::errors');
 $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('dashboard', 'DashboardController::index');
 
-    //manajemen users
-    $routes->get('user', 'UsersController::index');
-
     // PEMILIK
     $routes->group('pemilik', ['filter' => 'PemilikFilter'], function ($routes) {
+
+        //Kelola Users
+        $routes->get('users', 'UsersController::index');
+        $routes->post('users/store', 'UsersController::store');
+
         // Kelola Bahan
         $routes->get('kelola-bahan', 'BahanController::index');
         $routes->post('kelola-bahan/store', 'BahanController::store');

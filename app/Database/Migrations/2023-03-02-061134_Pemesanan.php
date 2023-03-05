@@ -40,9 +40,6 @@ class Pemesanan extends Migration
             'tanggal_pemesanan' => [
                 'type' => 'DATE',
             ],
-            'jumlah_pemesanan' => [
-                'type' => 'INT',
-            ],
             'jenis_pemesanan' => [
                 'type' => 'ENUM',
                 'constraint' => "'normal', 'custom'",
@@ -95,9 +92,14 @@ class Pemesanan extends Migration
                 'null' => false,
                 'default' => 'diproses'
             ],
+            'keterangan_pesanan_admin' => [
+                'type' => 'TEXT',
+                'null' => true
+            ],
             'validasi_admin_id' => [
                 'type' => 'BIGINT',
                 'constraint' => '20',
+                'default' => 0
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',

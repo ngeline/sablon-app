@@ -23,6 +23,9 @@ class PemesananCustom extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
+            'jumlah_pemesanan' => [
+                'type' => 'INT',
+            ],
             'keterangan' => [
                 'type' => 'TEXT',
             ],

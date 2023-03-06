@@ -71,6 +71,12 @@
                             <span>Data Bahan</span>
                         </a>
                     </li>
+                    <li class="sidebar-item <?= uri_string() == 'admin/kelola-katalog-produk' ? 'active' : '' ?>">
+                        <a href="<?= base_url('admin/kelola-katalog-produk'); ?>" class="sidebar-link">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>Kelola Katalog Produk</span>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <li class="sidebar-item">

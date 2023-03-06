@@ -51,8 +51,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
 
     // PEMILIK
     $routes->group('pemilik', ['filter' => 'PemilikFilter'], function ($routes) {
-
-        //Kelola Users
+        // Kelola Users
         $routes->get('users', 'UsersController::index');
         $routes->post('users/store', 'UsersController::store');
 
@@ -66,12 +65,20 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
 
     // ADMIN
     $routes->group('admin', ['filter' => 'AdminFilter'], function ($routes) {
-        // Kelola Info Harga Bahan
+        // Info Harga Bahan
         $routes->get('info-harga-bahan', 'InfoHargaBahanController::index');
         $routes->get('info-harga-bahan/notif', 'InfoHargaBahanController::notif');
 
+        // Data Bahan
         $routes->get('data-bahan', 'BahanController::indexAdmin');
         $routes->get('data-bahan/detail', 'BahanController::edit');
+
+        // Kelola Katalog
+        $routes->get('kelola-katalog-produk', 'KatalogController::index');
+        $routes->post('kelola-katalog-produk/store', 'KatalogController::store');
+        $routes->get('kelola-katalog-produk/edit', 'KatalogController::edit');
+        $routes->post('kelola-katalog-produk/update', 'KatalogController::update');
+        $routes->get('kelola-katalog-produk/delete/(:num)', 'KatalogController::delete/$1');
     });
 
     // PEMBELI

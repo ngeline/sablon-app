@@ -53,7 +53,7 @@ class UsersController extends BaseController
         if (!$validation->run($_POST)) {
             $errors = $validation->getErrors();
             $arr = implode("<br>", $errors);
-            session()->setFlashdata("Warning", $arr);
+            session()->setFlashdata("warning", $arr);
             return redirect()->to(base_url('pemilik/users'));
         }
 
@@ -62,7 +62,9 @@ class UsersController extends BaseController
             'password'  => password_hash($data['password'], PASSWORD_DEFAULT),
             'role'      => $data['role'],
         ];
+
         $this->users->insertUser($users);
+
         session()->setFlashdata('success', 'Berhasil Menambahkan Data Users');
         return redirect()->to(base_url('pemilik/users'));
     }

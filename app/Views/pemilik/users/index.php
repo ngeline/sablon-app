@@ -57,7 +57,7 @@
                     </div>
                     <label>Role User: </label>
                     <div class="form-group">
-                        <input id="role" name="role" type="text" placeholder="Role User" class="form-control" value="admin" disabled />
+                        <input id="role" name="role" type="text" placeholder="Role User" class="form-control" value="admin" readonly />
                     </div>
                 </div>
                 <div class="modal-footer">

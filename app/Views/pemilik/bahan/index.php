@@ -30,8 +30,8 @@
                             <td><?= number_format($row['harga_beli'], 0, '', '.') ?></td>
                             <td><?= number_format($row['harga_jual'], 0, '', '.') ?></td>
                             <td>
-                                <a href="javacript:void(0)" class="btn icon icon-left btn-warning" id="btnEdit" data-id="<?= $row['id'] ?>"><i data-feather="alert-triangle"></i> Update Data</a>
-                                <a href="javacript:void(0)" class="btn icon icon-left btn-danger" id="btnDelete" data-id="<?= base_url('pemilik/kelola-bahan/delete/' . $row['id']) ?>"><i data-feather="alert-circle"></i> Hapus Data</a>
+                                <a class="btn icon icon-left btn-warning" id="btnEdit" data-id="<?= $row['id'] ?>"><i data-feather="alert-triangle"></i> Update Data</a>
+                                <a class="btn icon icon-left btn-danger" id="btnDelete" data-id="<?= base_url('pemilik/kelola-bahan/delete/' . $row['id']) ?>"><i data-feather="alert-circle"></i> Hapus Data</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

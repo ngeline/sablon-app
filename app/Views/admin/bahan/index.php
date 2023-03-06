@@ -28,7 +28,7 @@
                             <td><?= number_format($row['harga_beli'], 0, '', '.') ?></td>
                             <td><?= number_format($row['harga_jual'], 0, '', '.') ?></td>
                             <td>
-                                <a href="javacript:void(0)" class="btn icon icon-left btn-info text-white" id="btnEdit" data-id="<?= $row['id'] ?>"><i data-feather="info"></i> Detail Data</a>
+                                <a class="btn icon icon-left btn-info text-white" id="btnEdit" data-id="<?= $row['id'] ?>"><i data-feather="info"></i> Detail Data</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

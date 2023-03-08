@@ -139,7 +139,7 @@
         Swal.fire({
             title: 'Apakah kamu yakin?',
             text: "Anda tidak akan dapat mengembalikan ini!",
-            icon: 'danger',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',

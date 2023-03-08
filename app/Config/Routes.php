@@ -54,6 +54,9 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         // Kelola Users
         $routes->get('users', 'UsersController::index');
         $routes->post('users/store', 'UsersController::store');
+        $routes->get('users/edit', 'UsersController::edit');
+        $routes->post('users/update', 'UsersController::update');
+        $routes->get('users/delete/(:num)', 'UsersController::delete/$1');
 
         // Kelola Bahan
         $routes->get('kelola-bahan', 'BahanController::index');

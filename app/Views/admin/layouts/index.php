@@ -12,6 +12,8 @@
     <link rel="shortcut icon" href="<?= base_url(); ?>/admin/assets/images/logo/favicon.png" type="image/png" />
 
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/css/shared/iconly.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/css/pages/datatables.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/css/pages/fontawesome.min.css" />

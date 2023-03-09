@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/admin/assets/css/pages/auth.css" />
     <link rel="shortcut icon" href="<?= base_url(); ?>/admin/assets/images/logo/favicon.svg" type="image/x-icon" />
     <link rel="shortcut icon" href="<?= base_url(); ?>/admin/assets/images/logo/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
 
 <body>

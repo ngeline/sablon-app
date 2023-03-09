@@ -48,12 +48,14 @@
     </div>
     <!-- jQery -->
     <script src=" <?= base_url(); ?>/users/js/jquery-3.4.1.min.js"></script>
-                <!-- popper js -->
-                <script src="<?= base_url(); ?>/users/js/popper.min.js"></script>
-                <!-- bootstrap js -->
-                <script src="<?= base_url(); ?>/users/js/bootstrap.js"></script>
-                <!-- custom js -->
-                <script src="<?= base_url(); ?>/users/js/custom.js"></script>
+    <!-- popper js -->
+    <script src="<?= base_url(); ?>/users/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="<?= base_url(); ?>/users/js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="<?= base_url(); ?>/users/js/custom.js"></script>
+
+    <?= $this->renderSection('script'); ?>
 </body>
 
 </html>

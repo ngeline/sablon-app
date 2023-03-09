@@ -36,7 +36,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'LandingPageController::index');
 $routes->get('cek-invoice', 'CekInvoiceController::index');
 $routes->get('order', 'OrderController::index');
-
+$routes->get('produk-detail', 'LandingPageController::detailProduk');
 
 //Routes authentication
 $routes->get('login', 'AuthController::index');
@@ -44,7 +44,6 @@ $routes->post('login', 'AuthController::postlogin');
 $routes->get('logout', 'AuthController::logout');
 
 $routes->get('errors', 'AuthController::errors');
-
 
 $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('dashboard', 'DashboardController::index');
@@ -83,8 +82,6 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         $routes->post('kelola-katalog-produk/update', 'KatalogController::update');
         $routes->get('kelola-katalog-produk/delete/(:num)', 'KatalogController::delete/$1');
     });
-
-    // PEMBELI
 });
 
 /*

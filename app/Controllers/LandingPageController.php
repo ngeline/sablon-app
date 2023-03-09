@@ -31,4 +31,22 @@ class LandingPageController extends BaseController
 
         return view('users/landingpage', $data);
     }
+
+    public function detailProduk()
+    {
+        if ($this->request->isAJAX()) {
+            $id = $this->request->getVar('id');
+
+            $model = new KatalogModel();
+
+            $data = [
+                'katalog' => $model->getKatalog($id),
+            ];
+
+            $encoded_data = base64_encode(json_encode($data));
+
+            return $this->response->setContentType('application/json')
+                ->setJSON(array('data' => $encoded_data));
+        }
+    }
 }

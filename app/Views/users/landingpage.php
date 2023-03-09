@@ -401,7 +401,7 @@
                     <div class="box">
                         <div class="option_container">
                             <div class="options">
-                                <a href="#" class="option1">
+                                <a id="btnDetailProduk" data-id="<?= $row['id'] ?>" class="option1">
                                     Detail Produk
                                 </a>
                                 <!-- <a href="" class="option2">
@@ -838,4 +838,58 @@
 </section> -->
 <!-- end client section -->
 
+<!--Modal Detail -->
+<div class="modal fade" id="ModalDetailProduk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Data Produk</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Nama Produk</label>
+                        <div class="form-group">
+                            <input id="addNama" name="nama" type="text" placeholder="Nama Produk" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?= $this->endSection(); ?>
+
+<?= $this->section('script'); ?>
+<script>
+    $(document).ready(function() {
+        $('body').on('click', '#btnDetailProduk', function() {
+            var this_id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url('produk-detail') ?>",
+                data: {
+                    id: this_id,
+                },
+                success: function(response) {
+                    $('#ModalDetailProduk').modal('show');
+                    var encoded_data = response.data;
+                    var decoded_data = JSON.parse(atob(encoded_data));
+                    console.log(decoded_data)
+                    $('#addNama').val(decoded_data.katalog.nama_produk);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('AJAX error:');
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

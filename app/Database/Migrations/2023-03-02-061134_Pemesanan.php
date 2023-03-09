@@ -67,6 +67,11 @@ class Pemesanan extends Migration
                 'constraint' => '20',
                 'null' => true
             ],
+            'total_biaya_lainnya' => [
+                'type' => 'BIGINT',
+                'constraint' => '20',
+                'null' => true
+            ],
             'total_pembayaran' => [
                 'type' => 'BIGINT',
                 'constraint' => '20',

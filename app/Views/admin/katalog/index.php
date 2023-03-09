@@ -287,7 +287,6 @@
                     $('#ModalUpdate').modal('show');
                     var encoded_data = response.data;
                     var decoded_data = JSON.parse(atob(encoded_data));
-                    console.log(decoded_data)
                     $('#editId').val(decoded_data.katalog.id);
                     $('#editNama').val(decoded_data.katalog.nama_produk);
                     $('#editJenisBahanSebelumnya').val(decoded_data.bahan);

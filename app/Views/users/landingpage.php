@@ -14,19 +14,19 @@
                             <div class="detail-box">
                                 <h1>
                                     <span>
-                                        Sale 20% Off
+                                        Produk Jadi
                                     </span>
                                     <br>
-                                    On Everything
+                                    Semua Barang
                                 </h1>
                                 <p>
-                                    Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse
-                                    dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto
-                                    veritatis delectus repellat modi impedit sequi.
+                                    Kami menyediakan produk siap pakai dengan beragam motif.
+                                    Baik bahan dan jenis sablon terjamin kualitasnya.
+                                    Segera order produk kami dapat gratis ongkir wilayah Kediri.
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn1">
-                                        Shop Now
+                                    <a href="<?= base_url('order'); ?>" class="btn1">
+                                        Order Sekarang
                                     </a>
                                 </div>
                             </div>
@@ -41,19 +41,19 @@
                             <div class="detail-box">
                                 <h1>
                                     <span>
-                                        Sale 20% Off
+                                        Pesanan Custom
                                     </span>
                                     <br>
-                                    On Everything
+                                    Semua Barang
                                 </h1>
                                 <p>
-                                    Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse
-                                    dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto
-                                    veritatis delectus repellat modi impedit sequi.
+                                    Anda dapat memesan produk kami secara custom.
+                                    Segera order dan kreasikan imajinasi Anda dalam produk kami.
+                                    Bisa request bahan dan jenis sablon lho!
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn1">
-                                        Shop Now
+                                    <a href="<?= base_url('order'); ?>" class="btn1">
+                                        Order Sekarang
                                     </a>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <!-- <div class="carousel-item">
                 <div class="container ">
                     <div class="row">
                         <div class="col-md-7 col-lg-6 ">
@@ -87,13 +87,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="container">
             <ol class="carousel-indicators">
                 <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
                 <li data-target="#customCarousel1" data-slide-to="1"></li>
-                <li data-target="#customCarousel1" data-slide-to="2"></li>
+                <!-- <li data-target="#customCarousel1" data-slide-to="2"></li> -->
             </ol>
         </div>
     </div>
@@ -107,7 +107,7 @@
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Why Shop With Us
+                Kenapa Perlu Belanja Di Kami
             </h2>
         </div>
         <div class="row">
@@ -202,10 +202,10 @@
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Fast Delivery
+                            Proses Cepat
                         </h5>
                         <p>
-                            variations of passages of Lorem Ipsum available
+                            proses pemesanan hingga pengiriman terjamin cepat
                         </p>
                     </div>
                 </div>
@@ -317,10 +317,10 @@
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Free Shiping
+                            Gratis Pengiriman
                         </h5>
                         <p>
-                            variations of passages of Lorem Ipsum available
+                            order produk kami gratis pengiriman wilayah Kediri
                         </p>
                     </div>
                 </div>
@@ -338,10 +338,10 @@
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Best Quality
+                            Kualitas Terbaik
                         </h5>
                         <p>
-                            variations of passages of Lorem Ipsum available
+                            kami menjual produk dengan kualitas dan mutu yang baik
                         </p>
                     </div>
                 </div>
@@ -352,7 +352,7 @@
 <!-- end why section -->
 
 <!-- arrival section -->
-<section class="arrival_section">
+<!-- <section class="arrival_section">
     <div class="container">
         <div class="box">
             <div class="arrival_bg_box">
@@ -376,7 +376,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- end arrival section -->
 
 <!-- product section -->
@@ -384,10 +384,52 @@
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Our <span>products</span>
+                <span>Produk</span> Kami
             </h2>
         </div>
+        <form action="<?= base_url('/') ?>" method="get">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control mr-2" placeholder="Cari produk kami" name="search" value="<?= $searchTerm ?>">
+                <button class="btn btn-primary" type="submit">Cari</button>
+            </div>
+        </form>
+
+        <!-- Display product -->
         <div class="row">
+            <?php foreach ($katalog as $row) : ?>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                    <div class="box">
+                        <div class="option_container">
+                            <div class="options">
+                                <a href="#" class="option1">
+                                    Detail Produk
+                                </a>
+                                <!-- <a href="" class="option2">
+                                    Buy Now
+                                </a> -->
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="<?= base_url('assets/image/katalog/' . $row['foto_produk']); ?>" alt="">
+                        </div>
+                        <div class="text-center">
+                            <h5>
+                                <?= $row['nama_produk']; ?>
+                            </h5>
+                            <br>
+                            <h6>
+                                Rp <?= number_format($row['harga_jual'], 0, '', '.') ?>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <br>
+        <div class="mb-3 d-flex justify-content-center">
+            <?= $pager->links('default', 'bootstrap') ?>
+        </div>
+        <!-- <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-4">
                 <div class="box">
                     <div class="option_container">
@@ -693,13 +735,13 @@
             <a href="">
                 View All products
             </a>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- end product section -->
 
 <!-- client section -->
-<section class="client_section layout_padding">
+<!-- <section class="client_section layout_padding">
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
@@ -793,7 +835,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- end client section -->
 
 <?= $this->endSection(); ?>

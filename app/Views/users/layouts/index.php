@@ -44,16 +44,16 @@
     <?= $this->include('users/layouts/footer'); ?>
     <!-- footer end -->
     <div class="cpy_">
-        <p>© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a></p>
+        <p>© 2023 All Rights Reserved By <a href="<?= base_url('/'); ?>"">Wilis Sablon™</a></p>
     </div>
     <!-- jQery -->
-    <script src="<?= base_url(); ?>/users/js/jquery-3.4.1.min.js"></script>
-    <!-- popper js -->
-    <script src="<?= base_url(); ?>/users/js/popper.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="<?= base_url(); ?>/users/js/bootstrap.js"></script>
-    <!-- custom js -->
-    <script src="<?= base_url(); ?>/users/js/custom.js"></script>
+    <script src=" <?= base_url(); ?>/users/js/jquery-3.4.1.min.js"></script>
+                <!-- popper js -->
+                <script src="<?= base_url(); ?>/users/js/popper.min.js"></script>
+                <!-- bootstrap js -->
+                <script src="<?= base_url(); ?>/users/js/bootstrap.js"></script>
+                <!-- custom js -->
+                <script src="<?= base_url(); ?>/users/js/custom.js"></script>
 </body>
 
 </html>

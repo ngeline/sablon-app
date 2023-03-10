@@ -1,25 +1,13 @@
 <?= $this->extend('users/layouts/index'); ?>
 
 <?= $this->section('main-content'); ?>
-<!-- inner page section -->
-<section class="inner_page_head">
-    <div class="container_fuild">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="full">
-                    <h3>Contact us</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end inner page section -->
+
 <!-- product section -->
 <section class="product_section layout_padding">
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Our <span>products</span>
+                Our <span>Katalog</span>
             </h2>
         </div>
         <div class="row">
@@ -325,8 +313,8 @@
             </div>
         </div>
         <div class="btn-box">
-            <a href="">
-                View All products
+            <a href="<?= base_url("order-custom"); ?>">
+                Order Pesanan Custom
             </a>
         </div>
     </div>

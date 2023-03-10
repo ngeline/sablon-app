@@ -36,6 +36,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'LandingPageController::index');
 $routes->get('cek-invoice', 'CekInvoiceController::index');
 $routes->get('order', 'OrderController::index');
+$routes->get('order-custom', 'OrderCustomController::index');
 $routes->get('produk-detail', 'LandingPageController::detailProduk');
 
 //Routes authentication

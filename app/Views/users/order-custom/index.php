@@ -10,7 +10,7 @@
                 Pesanan <span>Custom</span>
             </h2>
         </div>
-        <form action="<?= base_url(); ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url(); ?>" method="post" enctype="multipart/form-data" files=true>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputTanggal">Tanggal Pemesanan</label>

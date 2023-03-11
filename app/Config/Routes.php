@@ -49,6 +49,9 @@ $routes->get('errors', 'AuthController::errors');
 $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('dashboard', 'DashboardController::index');
 
+    //Kelola Pesanan
+    $routes->get('pesanan', 'PesananController::index');
+
     // PEMILIK
     $routes->group('pemilik', ['filter' => 'PemilikFilter'], function ($routes) {
         // Kelola Users

@@ -95,9 +95,10 @@
         <tr>
             <th>No Invoice</th>
             <th>Nama Pemesan</th>
-            <th>KTP Pemesan</th>
-            <th>Telepon Pemesan</th>
-            <th>Tanggal Pesanan</th>
+            <th>Tambahan Biaya (Custom Pesanan)</th>
+            <th>Total Bayar</th>
+            <th>Verifikasi Pesanan</th>
+            <th>Verifikasi Pembayaran</th>
             <th>Aksi</th>
         </tr>
         <tr>
@@ -106,6 +107,7 @@
             <td>Row 1, Column 3</td>
             <td>Row 1, Column 4</td>
             <td>Row 1, Column 5</td>
+            <td>Row 1, Column 6</td>
             <td>
                 <a href="#" role="button" class="btn btn-primary">Detail Pesanan</a>
             </td>

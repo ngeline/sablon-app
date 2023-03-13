@@ -35,9 +35,9 @@ $routes->setAutoRoute(true);
 // Users / pelanggan
 $routes->get('/', 'LandingPageController::index');
 $routes->get('cek-invoice', 'CekInvoiceController::index');
+$routes->get('produk-detail', 'LandingPageController::detailProduk');
 $routes->get('order', 'OrderController::index');
 $routes->get('order-custom', 'OrderCustomController::index');
-$routes->get('produk-detail', 'LandingPageController::detailProduk');
 
 //Routes authentication
 $routes->get('login', 'AuthController::index');
@@ -51,6 +51,8 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
 
     //Kelola Pesanan
     $routes->get('pesanan', 'PesananController::index');
+    $routes->get('input-katalog', 'PesananController::katalog');
+    $routes->get('input-custom', 'PesananController::custom');
 
     // PEMILIK
     $routes->group('pemilik', ['filter' => 'PemilikFilter'], function ($routes) {

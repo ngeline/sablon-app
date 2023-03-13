@@ -13,4 +13,25 @@ class PesananController extends BaseController
         ];
         return view('admin/pesanan/index', $data);
     }
+    
+    public function katalog()
+    {
+        $data = [
+            'title' => 'Input Pesanan Sesuai Katalog',
+        ];
+        return view('admin/pesanan/create-katalog', $data);
+    }
+    public function custom()
+    {
+        $data = [
+            'title' => 'Input Pesanan Custom',
+        ];
+        return view('admin/pesanan/create-custom', $data);
+    }
+
+    public function store()
+    {
+        $data = $this->request->getPost();
+        
+    }
 }

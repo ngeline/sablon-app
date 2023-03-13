@@ -10,11 +10,15 @@
                 Pesanan <span>Custom</span>
             </h2>
         </div>
-        <form action="<?= base_url(); ?>" method="post" enctype="multipart/form-data" files=true>
+        <form action="<?= base_url(''); ?>" method="post" enctype="multipart/form-data" files=true>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inputTanggal">Tanggal Pemesanan</label>
-                    <input type="date" class="form-control" id="inputTanggal" value="<?= date("Y-m-d"); ?>" readonly>
+                    <label for="tanggal_pesanan">Tanggal Pemesanan</label>
+                    <input type="date" class="form-control" id="tanggal_pesanan" value="<?= date("Y-m-d"); ?>" readonly>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="jenis_pesanan">Jenis Pesanan</label>
+                    <input type="text" class="form-control" id="jenis_pesanan" value="custom" readonly>
                 </div>
             </div>
             <div class="form-row">
@@ -56,11 +60,11 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="custom_foto">Design Barang</label>
+                    <label for="custom_foto">Design Pesanan</label>
                     <input type="file" class="form-control" id="custom_foto">
                 </div>
                 <div class="form-group col-md-8">
-                    <label for="keterangan">Keterangan</label>
+                    <label for="keterangan">Detail Pesanan</label>
                     <input type="text" class="form-control" id="keterangan" placeholder="Masukkan Detail Pemesanan">
                 </div>
             </div>

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PemesananPemesananKatalogModel extends Model
+class PemesananKatalogModel extends Model
 {
     protected $allowedFields;
     public function __construct()

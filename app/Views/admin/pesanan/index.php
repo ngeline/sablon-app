@@ -1,14 +1,12 @@
-<?= $this->extend('admin/layouts/index') ;?>
+<?= $this->extend('admin/layouts/index'); ?>
 
-<?= $this->section('main-content') ;?>
+<?= $this->section('main-content'); ?>
 <section class="section">
     <div class="card">
         <div class="card-header">
-            <a class="btn icon icon-left btn-primary" href="<?= base_url('input-katalog'); ?>"><i
-                    data-feather="edit"></i> Input Pesanan Katalog</a>
+            <a class="btn icon icon-left btn-primary" href="<?= base_url('admin/input-katalog'); ?>"><i data-feather="edit"></i> Input Pesanan Katalog</a>
 
-            <a class="btn icon icon-left btn-primary" href="<?= base_url('input-custom'); ?>"><i
-                    data-feather="edit"></i> Input Pesanan Custom</a>
+            <a class="btn icon icon-left btn-primary" href="<?= base_url('admin/input-custom'); ?>"><i data-feather="edit"></i> Input Pesanan Custom</a>
         </div>
 
         <div class="card-body">
@@ -33,4 +31,4 @@
     </div>
 </section>
 
-<?= $this->endSection() ;?>
+<?= $this->endSection(); ?>

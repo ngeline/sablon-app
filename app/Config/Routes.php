@@ -49,11 +49,6 @@ $routes->get('errors', 'AuthController::errors');
 $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
     $routes->get('dashboard', 'DashboardController::index');
 
-    //Kelola Pesanan
-    $routes->get('pesanan', 'PesananController::index');
-    $routes->get('input-katalog', 'PesananController::katalog');
-    $routes->get('input-custom', 'PesananController::custom');
-
     // PEMILIK
     $routes->group('pemilik', ['filter' => 'PemilikFilter'], function ($routes) {
         // Kelola Users
@@ -87,6 +82,12 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         $routes->get('kelola-katalog-produk/edit', 'KatalogController::edit');
         $routes->post('kelola-katalog-produk/update', 'KatalogController::update');
         $routes->get('kelola-katalog-produk/delete/(:num)', 'KatalogController::delete/$1');
+
+        //Kelola Pesanan
+        $routes->get('pesanan', 'PesananController::index');
+        $routes->get('input-katalog', 'PesananController::katalog');
+        $routes->post('input-katalog/store', 'PesananController::storeAdminPemesananKatalog');
+        $routes->get('input-custom', 'PesananController::custom');
     });
 });
 

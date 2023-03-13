@@ -40,6 +40,10 @@ class Pemesanan extends Migration
             'tanggal_pemesanan' => [
                 'type' => 'DATE',
             ],
+            'via_pemesanan' => [
+                'type' => 'ENUM',
+                'constraint' => "'online', 'onspot'",
+            ],
             'jenis_pemesanan' => [
                 'type' => 'ENUM',
                 'constraint' => "'normal', 'custom'",

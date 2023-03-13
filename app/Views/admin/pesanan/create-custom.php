@@ -45,11 +45,16 @@
                         <textarea class="form-control" id="alamat_pemesan" rows="2"
                             placeholder="Masukkan Alamat Pemesan"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="alamat_pengiriman">Alamat Pengiriman</label>
+                        <textarea class="form-control" id="alamat_pengiriman" rows="2"
+                            placeholder="Masukkan Alamat Pengiriman"></textarea>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="jenis_barang">Jenis Pesanan</label>
+                            <label for="jenis_barang">Jenis Barang Pesanan</label>
                             <input type="text" class="form-control" name="jenis_barang" id="jenis_barang"
-                                placeholder="Masukkan Jenis Pesanan">
+                                placeholder="Masukkan Jenis Barang Pesanan">
                         </div>
                         <div class="form-group">
                             <label for="design">Design Pesanan</label>

@@ -35,6 +35,10 @@
                 <label for="alamat_pemesan">Alamat Pemesan</label>
                 <input type="text" class="form-control" id="alamat_pemesan" placeholder="Masukkan Alamat Pemesan">
             </div>
+            <div class="form-group">
+                <label for="alamat_pengiriman">Alamat Pengiriman</label>
+                <input type="text" class="form-control" id="alamat_pengiriman" placeholder="Masukkan Alamat Pengiriman">
+            </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="telephone">No. HP (Whatsapp)</label>

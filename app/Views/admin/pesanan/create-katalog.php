@@ -10,28 +10,78 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="tanggal_pemesanan">Tanggal Pemesanan</label>
-                            <input type="date" class="form-control" id="tanggal_pemesanan"
-                                placeholder="Masukkan Tanggal" />
+                            <input type="date" class="form-control" id="tanggal_pemesanan" />
                         </div>
 
                         <div class="form-group">
-                            <label for="nama">Nama Lengkap</label>
+                            <label for="nama">Nama Lengkap Pemesan</label>
                             <input type="text" class="form-control" name="nama" id="nama"
                                 placeholder="Masukkan Nama Lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label for="ktp">NIK KTP</label>
+                            <input type="number" class="form-control" name="ktp" id="ktp"
+                                placeholder="Masukkan NIK KTP">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="jenis_pesanan">Jenis Pesanan</label>
-                            <input type="text" class="form-control" id="jenis_pesanan" value="katalog" readonly />
+                            <input type="text" class="form-control" id="jenis_pesanan" value="custom" readonly />
                         </div>
                         <div class="form-group">
-                            <label for="disabledInput">Readonly Input</label>
-                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
-                                value="You can't update me :P" />
+                            <label for="ktp">NIK KTP</label>
+                            <input type="number" class="form-control" name="ktp" id="ktp"
+                                placeholder="Masukkan NIK KTP">
+                        </div>
+                        <div class="form-group">
+                            <label for="no_hp">No. HP (Whatsapp)</label>
+                            <input type="text" class="form-control" name="no_hp" id="no_hp"
+                                placeholder="Masukkan No.HP yang terhubung ke Whatsapp">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat_pemesan">Alamat Pemesan</label>
+                        <textarea class="form-control" id="alamat_pemesan" rows="2"
+                            placeholder="Masukkan Alamat Pemesan"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat_pengiriman">Alamat Pengiriman</label>
+                        <textarea class="form-control" id="alamat_pengiriman" rows="2"
+                            placeholder="Masukkan Alamat Pengiriman"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <fieldset class="form-group">
+                            <label for="katalog">Pilih Katalog Pesanan</label>
+                            <select class="form-select" id="bahan">
+                                <option value="">Pilihan...</option>
+                                <option>IT</option>
+                                <option>Blade Runner</option>
+                                <option>Thor Ragnarok</option>
+                            </select>
+                        </fieldset>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="jumlah_pesanan">Jumlah Pesanan</label>
+                            <input type="number" class="form-control" name="jumlah_pesanan" id="jumlah_pesanan"
+                                placeholder="Masukkan Jumlah Pesanan">
+                            <p>
+                                <small class="text-muted">Minimal Pemesanan 1 lusin ( 12Pcs )</small>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="total_pesanan">Total Pembayaran Custom Pesanan</label>
+                            <input type="number" class="form-control" name="total_pesanan" id="total_pesanan"
+                                placeholder="Masukkan Total Pembayaran Custom Pesanan">
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="col-12 d-flex justify-content-start">
                     <button type="submit" class="btn btn-primary w-20 me-3">
                         Submit

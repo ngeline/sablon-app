@@ -3,15 +3,28 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\BahanModel;
+use App\Models\KatalogBahanModel;
 use App\Models\KatalogModel;
 
 class LandingPageController extends BaseController
 {
+    protected $katalog;
+    protected $katalogBahan;
+    protected $bahan;
+
+    public function __construct()
+    {
+        $this->katalog = new KatalogModel();
+        $this->katalogBahan = new KatalogBahanModel();
+        $this->bahan = new BahanModel();
+    }
+
     public function index()
     {
-        $model = new KatalogModel();
+        $model = $this->katalog;
 
-        $perPage = 1;
+        $perPage = 2;
         $searchTerm = $this->request->getVar('search') ? $this->request->getVar('search') : '';
         $currentPage = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
 
@@ -37,10 +50,21 @@ class LandingPageController extends BaseController
         if ($this->request->isAJAX()) {
             $id = $this->request->getVar('id');
 
-            $model = new KatalogModel();
+            $dataKatalogBahan = $this->katalogBahan->select('id')->where('katalog_id', $id)->findAll();
+
+            $arr = [];
+
+            foreach ($dataKatalogBahan as $value) {
+                $dataBahan = $this->bahan->where('id', $value['id'])->withDeleted('bahan')->first();
+                $span = "<button type='button' class='btn btn-sm btn-success' disabled>" . $dataBahan['nama_bahan'] . "</button>";
+                array_push($arr, $span);
+            }
+
+            $namaBahan = implode(" ", $arr);
 
             $data = [
-                'katalog' => $model->getKatalog($id),
+                'katalog' => $this->katalog->getKatalog($id),
+                'spanBahan' => $namaBahan
             ];
 
             $encoded_data = base64_encode(json_encode($data));

@@ -21,6 +21,9 @@
     <link href="<?= base_url(); ?>/users/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="<?= base_url(); ?>/users/css/responsive.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="<?= base_url('assets/library/glightbox/css/glightbox.min.css') ?>">
+
     <?= $this->renderSection('css-inline'); ?>
 </head>
 
@@ -44,7 +47,7 @@
     <?= $this->include('users/layouts/footer'); ?>
     <!-- footer end -->
     <div class="cpy_">
-        <p>© 2023 All Rights Reserved By <a href="<?= base_url('/'); ?>"">Wilis Sablon™</a></p>
+        <p>© 2023 All Rights Reserved By <a href="<?= base_url('/'); ?>">Wilis Sablon™</a></p>
     </div>
     <!-- jQery -->
     <script src=" <?= base_url(); ?>/users/js/jquery-3.4.1.min.js"></script>
@@ -52,6 +55,9 @@
     <script src="<?= base_url(); ?>/users/js/popper.min.js"></script>
     <!-- bootstrap js -->
     <script src="<?= base_url(); ?>/users/js/bootstrap.js"></script>
+
+    <script src="<?= base_url('assets/library/glightbox/js/glightbox.min.js') ?>"></script>
+
     <!-- custom js -->
     <script src="<?= base_url(); ?>/users/js/custom.js"></script>
 

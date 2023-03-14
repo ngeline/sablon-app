@@ -396,39 +396,76 @@
 
         <!-- Display product -->
         <div class="row">
-            <?php foreach ($katalog as $row) : ?>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="box">
-                        <div class="option_container">
-                            <div class="options">
-                                <a id="btnDetailProduk" data-id="<?= $row['id'] ?>" class="option1">
-                                    Detail Produk
-                                </a>
-                                <!-- <a href="" class="option2">
+            <?php if (count($katalog) == 0) : ?>
+                <div class="col-md-12 mt-4">
+                    <center>
+                        <h4>Produk tidak ditemukan</h4>
+                    </center>
+                </div>
+            <?php else : ?>
+                <?php foreach ($katalog as $row) : ?>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="box">
+                            <div class="option_container">
+                                <div class="options">
+                                    <a id="btnDetailProduk" data-id="<?= $row['id'] ?>" class="option1">
+                                        Detail Produk
+                                    </a>
+                                    <!-- <a href="" class="option2">
                                     Buy Now
                                 </a> -->
+                                </div>
+                            </div>
+                            <div class="img-box">
+                                <img src="<?= base_url('assets/image/katalog/' . $row['foto_produk']); ?>" alt="">
+                            </div>
+                            <div class="text-center">
+                                <h5>
+                                    <?= $row['nama_produk']; ?>
+                                </h5>
+                                <br>
+                                <h6>
+                                    Rp <?= number_format($row['harga_jual'], 0, '', '.') ?>
+                                </h6>
                             </div>
                         </div>
-                        <div class="img-box">
-                            <img src="<?= base_url('assets/image/katalog/' . $row['foto_produk']); ?>" alt="">
-                        </div>
-                        <div class="text-center">
-                            <h5>
-                                <?= $row['nama_produk']; ?>
-                            </h5>
-                            <br>
-                            <h6>
-                                Rp <?= number_format($row['harga_jual'], 0, '', '.') ?>
-                            </h6>
-                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
         <br>
         <div class="mb-3 d-flex justify-content-center">
             <?= $pager->links('default', 'bootstrap') ?>
         </div>
+
+        <!--Modal Detail -->
+        <div class="modal fade" id="ModalDetailProduk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row m-2">
+                            <div class="col-sm-5">
+                                <a id="imgClick" class="glightbox">
+                                    <div class="box w-100 mb-4">
+                                        <div class="img-box">
+                                            <img id="imgAlt" alt="">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-7 mt-4">
+                                <h4 id="namaProduk"></h4>
+                                <h5 class="text-danger" id="hargaJual"></h5>
+                                <div id="spanBahan" class="mb-3"></div>
+                                <label for="">Deskripsi Produk: </label>
+                                <div id="deskripsi" class="mt-0 mr-3 ml-3 mb-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-4">
                 <div class="box">
@@ -838,35 +875,15 @@
 </section> -->
 <!-- end client section -->
 
-<!--Modal Detail -->
-<div class="modal fade" id="ModalDetailProduk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Data Produk</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Nama Produk</label>
-                        <div class="form-group">
-                            <input id="addNama" name="nama" type="text" placeholder="Nama Produk" class="form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <?= $this->endSection(); ?>
 
 <?= $this->section('script'); ?>
 <script>
     $(document).ready(function() {
+        const lightbox = GLightbox({
+            selector: '.glightbox'
+        });
+
         $('body').on('click', '#btnDetailProduk', function() {
             var this_id = $(this).data('id');
             $.ajax({
@@ -880,7 +897,17 @@
                     var encoded_data = response.data;
                     var decoded_data = JSON.parse(atob(encoded_data));
                     console.log(decoded_data)
-                    $('#addNama').val(decoded_data.katalog.nama_produk);
+                    $('#namaProduk').html(decoded_data.katalog.nama_produk);
+                    $('#hargaJual').html('Rp ' + decoded_data.katalog.harga_jual.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                    $('#spanBahan').html(decoded_data.spanBahan);
+                    $('#deskripsi').html(decoded_data.katalog.deskripsi);
+                    if ($('#imgClick').attr('href') || $('#imgAlt').attr('src')) {
+                        $('#imgClick').removeAttr('href');
+                        $('#imgAlt').removeAttr('src');
+                    }
+                    $('#imgClick').attr('href', '<?= base_url('assets/image/katalog/') ?>' + decoded_data.katalog.foto_produk);
+                    $('#imgAlt').attr('src', '<?= base_url('assets/image/katalog/') ?>' + decoded_data.katalog.foto_produk);
+                    lightbox.reload();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('AJAX error:');

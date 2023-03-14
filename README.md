@@ -1,4 +1,24 @@
-# CodeIgniter 4 Application Starter
+# Sistem Informasi Wilis Sablon
+
+## How to run
+
+- Clone project ('git clone https://github.com/ngeline/sablon-app.git')
+- Update composer project ('composer update')
+- Create database ('sablon-app')
+- Migration database ('php spark migrate')
+- Seeder database ('php spark db:seed MainSeeder')
+- Run project ('php spark serve')
+- Access In Browser http://localhost:8080/
+
+## Account Admin
+- Username ('admin')
+- Password ('12345678')
+
+## Account Pemilik
+- Username ('pemilik')
+- Password ('12345678')
+
+<!-- # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
 
@@ -59,4 +79,4 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 
 - json (enabled by default - don't turn it off)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library -->
